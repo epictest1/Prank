@@ -16,21 +16,43 @@
             font-family: Arial, sans-serif;
             font-weight: bold;
             text-shadow: 5px 5px 20px red; /* Leuchtender Bluteffekt */
+            overflow: hidden;
         }
 
         .lol-text {
-            font-size: 20vw; /* Standardgröße für große Screens */
+            font-size: 10vw;
             max-width: 100vw;
             max-height: 100vh;
-            white-space: nowrap; /* Kein Umbruch */
+            white-space: nowrap;
             text-align: center;
+            line-height: 100vh;
+            transform: scale(1.5);
+        }
+
+        #playButton {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0); /* Unsichtbar */
+            border: none;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <div class="lol-text">LOL</div>
-    <audio autoplay>
+    <button id="playButton"></button>
+    <audio id="prank-audio">
         <source src="https://cdn.discordapp.com/attachments/1198329056492540065/1354450632756432986/prank.mp3?ex=67e555f3&is=67e40473&hm=91b5c1b8050d815afb3ef999fda09e9852e5c5ccb8bbbdfbe1f3cf541a2c5eb8&" type="audio/mpeg">
     </audio>
+
+    <script>
+        document.getElementById("playButton").addEventListener("click", function() {
+            document.getElementById("prank-audio").play();
+            this.style.display = "none";  // Button wird nach dem Klick unsichtbar
+        });
+    </script>
 </body>
 </html>

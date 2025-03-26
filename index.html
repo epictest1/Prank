@@ -27,6 +27,7 @@
             text-align: center;
             line-height: 100vh;
             transform: scale(1.5);
+            display: none;  /* Zuerst versteckt */
         }
 
         #playButton {
@@ -38,11 +39,20 @@
             background-color: rgba(0, 0, 0, 0); /* Unsichtbar */
             border: none;
             cursor: pointer;
+            color: white;
+            font-size: 3rem;
+            text-align: center;
+        }
+
+        #pressText {
+            font-size: 3rem;
+            color: white;
         }
     </style>
 </head>
 <body>
-    <div class="lol-text">LOL</div>
+    <div id="pressText">Hier drücken</div>
+    <div class="lol-text" id="lolText">LOL</div>
     <button id="playButton"></button>
     <audio id="prank-audio">
         <source src="https://cdn.discordapp.com/attachments/1198329056492540065/1354450632756432986/prank.mp3?ex=67e555f3&is=67e40473&hm=91b5c1b8050d815afb3ef999fda09e9852e5c5ccb8bbbdfbe1f3cf541a2c5eb8&" type="audio/mpeg">
@@ -50,8 +60,11 @@
 
     <script>
         document.getElementById("playButton").addEventListener("click", function() {
-            document.getElementById("prank-audio").play();
-            this.style.display = "none";  // Button wird nach dem Klick unsichtbar
+            // Text ändern und anzeigen
+            document.getElementById("pressText").style.display = "none";  // "Hier drücken" verstecken
+            document.getElementById("lolText").style.display = "block";   // "LOL" anzeigen
+            document.getElementById("prank-audio").play();  // Ton abspielen
+            this.style.display = "none";  // Button unsichtbar machen
         });
     </script>
 </body>
